@@ -26,9 +26,8 @@ app.service('dataService', function ($cookieStore) {
   			quotes.splice(i, 1);
   		}
   	}
+  	putQuotes(); //This could be wrong
   }
-
-// var getMyCookies = $cookieStore.get('quotes');
 
 	var putQuotes = function () {
 		$cookieStore.put('quotes', quotes)
@@ -40,7 +39,7 @@ app.service('dataService', function ($cookieStore) {
 
 
   if(!$cookieStore.get('quotes')) {
-  	saveQuotes();
+  	putQuotes();
   } else {
   	getQuotes();
   }
